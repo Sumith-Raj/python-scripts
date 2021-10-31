@@ -1,3 +1,6 @@
+# pip install beautifulsoup4
+# pip install vader-sentiment
+
 import requests
 import bs4
 from vader_sentiment.vader_sentiment import SentimentIntensityAnalyzer
@@ -8,7 +11,7 @@ soup = bs4.BeautifulSoup(response.content, 'lxml')
 for j in range(5):
     response1 = requests.get(x + '&page=' + str(j))
     soup2 = bs4.BeautifulSoup(response1.content, 'lxml')
-    comments = soup2.select('.t-ZTKy > div > div')
+    comments = soup2.select('.t-ZTKy > div > div')  # Html class names can change in future so change it accordingly
     for i in comments:
         review = i.getText()
         print(review + '\n')
